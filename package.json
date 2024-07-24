@@ -10,6 +10,14 @@
     "playground": "tree-sitter generate && tree-sitter build-wasm && tree-sitter playground"
   },
   "keywords": [],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -17,5 +25,17 @@
   },
   "devDependencies": {
     "tree-sitter-cli": "^0.20.8"
-  }
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.moonbit",
+      "injection-regex": "^moonbit$",
+      "file-types": [
+          "mbt"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ]
+    }
+  ]
 }
