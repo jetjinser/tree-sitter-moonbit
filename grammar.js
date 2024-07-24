@@ -309,10 +309,10 @@ module.exports = grammar({
       token.immediate(/\\o[0-7]{1,3}/),
       // hex
       token.immediate(/\\x[0-9a-fA-F]{1,2}/),
-      token.immediate(/\\x{[0-9a-fA-F]+}/),
+      token.immediate(/\\x\{[0-9a-fA-F]+\}/),
       // unicode
       token.immediate(/\\u[0-9a-fA-F]{4}/),
-      token.immediate(/\\u{[0-9a-fA-F]+}/),
+      token.immediate(/\\u\{[0-9a-fA-F]+\}/),
     ),
 
     multiline_string_separator: _ => /#\|/,

@@ -1457,7 +1457,7 @@
           "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "PATTERN",
-            "value": "\\\\x{[0-9a-fA-F]+}"
+            "value": "\\\\x\\{[0-9a-fA-F]+\\}"
           }
         },
         {
@@ -1471,7 +1471,7 @@
           "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "PATTERN",
-            "value": "\\\\u{[0-9a-fA-F]+}"
+            "value": "\\\\u\\{[0-9a-fA-F]+\\}"
           }
         }
       ]
@@ -4819,7 +4819,8 @@
     },
     "lowercase_identifier": {
       "type": "PATTERN",
-      "value": "[_[\\p{XID_Start}--\\p{Uppercase_Letter}]][_\\p{XID_Continue}]*"
+      "value": "[_[\\p{XID_Start}--\\p{Uppercase_Letter}]][_\\p{XID_Continue}]*",
+      "flags": "v"
     },
     "identifier": {
       "type": "CHOICE",
@@ -5058,4 +5059,3 @@
   "inline": [],
   "supertypes": []
 }
-
