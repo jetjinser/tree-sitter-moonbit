@@ -425,7 +425,7 @@ module.exports = grammar({
     ),
 
     apply_expression: $ => prec(PREC.apply, seq(
-      $.simple_expression,
+      field('method', $.simple_expression),
       '(',
       commaList(seq(optional(seq($.labeled_identifier, '=')), $.expression)),
       ')'

@@ -11,9 +11,9 @@
 #define ALIAS_COUNT 0
 #define TOKEN_COUNT 89
 #define EXTERNAL_TOKEN_COUNT 11
-#define FIELD_COUNT 0
+#define FIELD_COUNT 1
 #define MAX_ALIAS_SEQUENCE_LENGTH 10
-#define PRODUCTION_ID_COUNT 1
+#define PRODUCTION_ID_COUNT 2
 
 enum ts_symbol_identifiers {
   sym_lowercase_identifier = 1,
@@ -1585,6 +1585,24 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = false,
     .named = false,
   },
+};
+
+enum ts_field_identifiers {
+  field_method = 1,
+};
+
+static const char * const ts_field_names[] = {
+  [0] = NULL,
+  [field_method] = "method",
+};
+
+static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
+  [1] = {.index = 0, .length = 1},
+};
+
+static const TSFieldMapEntry ts_field_map_entries[] = {
+  [0] =
+    {field_method, 0},
 };
 
 static const TSSymbol ts_alias_sequences[PRODUCTION_ID_COUNT][MAX_ALIAS_SEQUENCE_LENGTH] = {
@@ -69413,8 +69431,8 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [1047] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_nonempty_block_expression, 3, 0, 0),
   [1049] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_dot_apply_expression, 8, 0, 0),
   [1051] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_dot_apply_expression, 8, 0, 0),
-  [1053] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_apply_expression, 8, 0, 0),
-  [1055] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_apply_expression, 8, 0, 0),
+  [1053] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_apply_expression, 8, 0, 1),
+  [1055] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_apply_expression, 8, 0, 1),
   [1057] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_anonymous_matrix_lambda_expression, 3, 0, 0),
   [1059] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_anonymous_matrix_lambda_expression, 3, 0, 0),
   [1061] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_anonymous_lambda_expression, 3, 0, 0),
@@ -69431,18 +69449,18 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [1083] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_binary_expression, 3, 0, 0),
   [1085] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_dot_apply_expression, 7, 0, 0),
   [1087] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_dot_apply_expression, 7, 0, 0),
-  [1089] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_apply_expression, 7, 0, 0),
-  [1091] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_apply_expression, 7, 0, 0),
+  [1089] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_apply_expression, 7, 0, 1),
+  [1091] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_apply_expression, 7, 0, 1),
   [1093] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_dot_apply_expression, 6, 0, 0),
   [1095] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_dot_apply_expression, 6, 0, 0),
-  [1097] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_apply_expression, 6, 0, 0),
-  [1099] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_apply_expression, 6, 0, 0),
+  [1097] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_apply_expression, 6, 0, 1),
+  [1099] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_apply_expression, 6, 0, 1),
   [1101] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_struct_brace_expression, 6, 0, 0),
   [1103] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_struct_brace_expression, 6, 0, 0),
   [1105] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_dot_apply_expression, 5, 0, 0),
   [1107] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_dot_apply_expression, 5, 0, 0),
-  [1109] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_apply_expression, 5, 0, 0),
-  [1111] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_apply_expression, 5, 0, 0),
+  [1109] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_apply_expression, 5, 0, 1),
+  [1111] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_apply_expression, 5, 0, 1),
   [1113] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_array_expression, 5, 0, 0),
   [1115] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_array_expression, 5, 0, 0),
   [1117] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_string_interpolation, 5, 0, 0),
@@ -69464,10 +69482,10 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [1149] = {.entry = {.count = 1, .reusable = true}}, SHIFT(144),
   [1151] = {.entry = {.count = 1, .reusable = true}}, SHIFT(167),
   [1153] = {.entry = {.count = 1, .reusable = true}}, SHIFT(166),
-  [1155] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_apply_expression, 4, 0, 0),
-  [1157] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_apply_expression, 4, 0, 0),
-  [1159] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_apply_expression, 3, 0, 0),
-  [1161] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_apply_expression, 3, 0, 0),
+  [1155] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_apply_expression, 4, 0, 1),
+  [1157] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_apply_expression, 4, 0, 1),
+  [1159] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_apply_expression, 3, 0, 1),
+  [1161] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_apply_expression, 3, 0, 1),
   [1163] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_method_expression, 3, 0, 0),
   [1165] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_method_expression, 3, 0, 0),
   [1167] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_struct_array_expression, 3, 0, 0),
@@ -70980,6 +70998,9 @@ TS_PUBLIC const TSLanguage *tree_sitter_moonbit(void) {
     .small_parse_table_map = ts_small_parse_table_map,
     .parse_actions = ts_parse_actions,
     .symbol_names = ts_symbol_names,
+    .field_names = ts_field_names,
+    .field_map_slices = ts_field_map_slices,
+    .field_map_entries = ts_field_map_entries,
     .symbol_metadata = ts_symbol_metadata,
     .public_symbol_map = ts_symbol_map,
     .alias_map = ts_non_terminal_alias_map,

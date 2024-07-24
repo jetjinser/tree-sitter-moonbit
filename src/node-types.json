@@ -83,10 +83,21 @@
   {
     "type": "apply_expression",
     "named": true,
-    "fields": {},
+    "fields": {
+      "method": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "simple_expression",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "expression",
@@ -94,10 +105,6 @@
         },
         {
           "type": "labeled_identifier",
-          "named": true
-        },
-        {
-          "type": "simple_expression",
           "named": true
         }
       ]

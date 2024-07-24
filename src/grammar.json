@@ -2382,8 +2382,12 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "SYMBOL",
-            "name": "simple_expression"
+            "type": "FIELD",
+            "name": "method",
+            "content": {
+              "type": "SYMBOL",
+              "name": "simple_expression"
+            }
           },
           {
             "type": "STRING",
