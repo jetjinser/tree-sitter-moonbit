@@ -1359,8 +1359,12 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "escape_sequence"
+              "type": "FIELD",
+              "name": "escape",
+              "content": {
+                "type": "SYMBOL",
+                "name": "escape_sequence"
+              }
             },
             {
               "type": "IMMEDIATE_TOKEN",

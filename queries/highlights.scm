@@ -42,6 +42,11 @@
   (multiline_string_literal)
 ] @string
 
+(string_literal
+  (string_fragment (escape_sequence) @string.special))
+(char_literal
+  escape: (escape_sequence) @string.special)
+
 [
   ";"
   ","

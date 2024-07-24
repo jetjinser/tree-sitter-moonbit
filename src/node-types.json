@@ -357,16 +357,17 @@
   {
     "type": "char_literal",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "escape_sequence",
-          "named": true
-        }
-      ]
+    "fields": {
+      "escape": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "escape_sequence",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
