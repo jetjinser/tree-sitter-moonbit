@@ -128,7 +128,8 @@ fn init {
             (qualified_identifier
              (lowercase_identifier)))
            (dot_identifier
-             (dot_operator)))))))))
+             (dot_operator)
+             (inner_dot_identifier)))))))))
     (statement_expression
      (let_expression
       (pattern
@@ -154,4 +155,5 @@ fn init {
             (qualified_identifier
              (lowercase_identifier)))
            (dot_identifier
-             (dot_operator)))))))))))))
+             (dot_operator)
+             (inner_dot_identifier)))))))))))))

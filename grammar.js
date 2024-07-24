@@ -742,7 +742,11 @@ module.exports = grammar({
 
     // colon_colon: _ => '::',
 
-    dot_identifier: $ => seq($.dot_operator, /[_\p{XID_Start}][_\p{XID_Continue}]*/),
+    dot_identifier: $ => seq(
+      $.dot_operator,
+      $.inner_dot_identifier,
+    ),
+    inner_dot_identifier: _ => /[_\p{XID_Start}][_\p{XID_Continue}]*/,
 
     package_identifier: _ => /@[_\p{XID_Start}][_\p{XID_Continue}]*/,
 

@@ -94,7 +94,7 @@ enum ts_symbol_identifiers {
   anon_sym_DASH_GT = 76,
   sym_uppercase_identifier = 77,
   sym_dot_operator = 78,
-  aux_sym_dot_identifier_token1 = 79,
+  sym_inner_dot_identifier = 79,
   sym_package_identifier = 80,
   sym_labeled_identifier = 81,
   sym_comment = 82,
@@ -320,7 +320,7 @@ static const char * const ts_symbol_names[] = {
   [anon_sym_DASH_GT] = "->",
   [sym_uppercase_identifier] = "uppercase_identifier",
   [sym_dot_operator] = "dot_operator",
-  [aux_sym_dot_identifier_token1] = "dot_identifier_token1",
+  [sym_inner_dot_identifier] = "inner_dot_identifier",
   [sym_package_identifier] = "package_identifier",
   [sym_labeled_identifier] = "labeled_identifier",
   [sym_comment] = "comment",
@@ -546,7 +546,7 @@ static const TSSymbol ts_symbol_map[] = {
   [anon_sym_DASH_GT] = anon_sym_DASH_GT,
   [sym_uppercase_identifier] = sym_uppercase_identifier,
   [sym_dot_operator] = sym_dot_operator,
-  [aux_sym_dot_identifier_token1] = aux_sym_dot_identifier_token1,
+  [sym_inner_dot_identifier] = sym_inner_dot_identifier,
   [sym_package_identifier] = sym_package_identifier,
   [sym_labeled_identifier] = sym_labeled_identifier,
   [sym_comment] = sym_comment,
@@ -1009,9 +1009,9 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [aux_sym_dot_identifier_token1] = {
-    .visible = false,
-    .named = false,
+  [sym_inner_dot_identifier] = {
+    .visible = true,
+    .named = true,
   },
   [sym_package_identifier] = {
     .visible = true,
@@ -3929,7 +3929,7 @@ static TSCharacterRange sym_lowercase_identifier_character_set_1[] = {
   {0x20000, 0x2a6df}, {0x2a700, 0x2b738}, {0x2b740, 0x2b81d}, {0x2b820, 0x2cea1}, {0x2ceb0, 0x2ebe0}, {0x2f800, 0x2fa1d}, {0x30000, 0x3134a},
 };
 
-static TSCharacterRange aux_sym_dot_identifier_token1_character_set_1[] = {
+static TSCharacterRange sym_inner_dot_identifier_character_set_1[] = {
   {'A', 'Z'}, {'_', '_'}, {'a', 'z'}, {0xaa, 0xaa}, {0xb5, 0xb5}, {0xba, 0xba}, {0xc0, 0xd6}, {0xd8, 0xf6},
   {0xf8, 0x2c1}, {0x2c6, 0x2d1}, {0x2e0, 0x2e4}, {0x2ec, 0x2ec}, {0x2ee, 0x2ee}, {0x370, 0x374}, {0x376, 0x377}, {0x37b, 0x37d},
   {0x37f, 0x37f}, {0x386, 0x386}, {0x388, 0x38a}, {0x38c, 0x38c}, {0x38e, 0x3a1}, {0x3a3, 0x3f5}, {0x3f7, 0x481}, {0x48a, 0x52f},
@@ -4055,7 +4055,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           lookahead == ' ') SKIP(36);
       if (('1' <= lookahead && lookahead <= '9')) ADVANCE(54);
       if (set_contains(sym_uppercase_identifier_character_set_1, 611, lookahead)) ADVANCE(114);
-      if (set_contains(aux_sym_dot_identifier_token1_character_set_1, 656, lookahead)) ADVANCE(116);
+      if (set_contains(sym_inner_dot_identifier_character_set_1, 656, lookahead)) ADVANCE(116);
       END_STATE();
     case 1:
       ADVANCE_MAP(
@@ -4091,7 +4091,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           lookahead == ' ') SKIP(1);
       if (('1' <= lookahead && lookahead <= '9')) ADVANCE(58);
       if (set_contains(sym_uppercase_identifier_character_set_1, 611, lookahead)) ADVANCE(114);
-      if (set_contains(aux_sym_dot_identifier_token1_character_set_1, 656, lookahead)) ADVANCE(116);
+      if (set_contains(sym_inner_dot_identifier_character_set_1, 656, lookahead)) ADVANCE(116);
       END_STATE();
     case 2:
       if (lookahead == '"') ADVANCE(50);
@@ -4176,7 +4176,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') SKIP(11);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(106);
-      if (set_contains(aux_sym_dot_identifier_token1_character_set_1, 656, lookahead)) ADVANCE(118);
+      if (set_contains(sym_inner_dot_identifier_character_set_1, 656, lookahead)) ADVANCE(118);
       END_STATE();
     case 12:
       if (lookahead == '/') ADVANCE(62);
@@ -4283,10 +4283,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'f')) ADVANCE(59);
       END_STATE();
     case 32:
-      if (set_contains(aux_sym_dot_identifier_token1_character_set_1, 656, lookahead)) ADVANCE(119);
+      if (set_contains(sym_inner_dot_identifier_character_set_1, 656, lookahead)) ADVANCE(119);
       END_STATE();
     case 33:
-      if (set_contains(aux_sym_dot_identifier_token1_character_set_1, 656, lookahead)) ADVANCE(120);
+      if (set_contains(sym_inner_dot_identifier_character_set_1, 656, lookahead)) ADVANCE(120);
       END_STATE();
     case 34:
       if (eof) ADVANCE(37);
@@ -4322,7 +4322,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           lookahead == ' ') SKIP(34);
       if (('1' <= lookahead && lookahead <= '9')) ADVANCE(58);
       if (set_contains(sym_uppercase_identifier_character_set_1, 611, lookahead)) ADVANCE(114);
-      if (set_contains(aux_sym_dot_identifier_token1_character_set_1, 656, lookahead)) ADVANCE(116);
+      if (set_contains(sym_inner_dot_identifier_character_set_1, 656, lookahead)) ADVANCE(116);
       END_STATE();
     case 35:
       if (eof) ADVANCE(37);
@@ -4373,7 +4373,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           lookahead == ' ') SKIP(36);
       if (('1' <= lookahead && lookahead <= '9')) ADVANCE(54);
       if (set_contains(sym_uppercase_identifier_character_set_1, 611, lookahead)) ADVANCE(114);
-      if (set_contains(aux_sym_dot_identifier_token1_character_set_1, 656, lookahead)) ADVANCE(116);
+      if (set_contains(sym_inner_dot_identifier_character_set_1, 656, lookahead)) ADVANCE(116);
       END_STATE();
     case 37:
       ACCEPT_TOKEN(ts_builtin_sym_end);
@@ -4741,7 +4741,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(sym_dot_operator);
       END_STATE();
     case 118:
-      ACCEPT_TOKEN(aux_sym_dot_identifier_token1);
+      ACCEPT_TOKEN(sym_inner_dot_identifier);
       if (set_contains(sym_uppercase_identifier_character_set_2, 763, lookahead)) ADVANCE(118);
       END_STATE();
     case 119:
@@ -65957,7 +65957,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3551), 1,
       aux_sym_accessor_token1,
     ACTIONS(3553), 1,
-      aux_sym_dot_identifier_token1,
+      sym_inner_dot_identifier,
     ACTIONS(3), 2,
       sym_comment,
       sym_docstring,
@@ -65979,7 +65979,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3557), 1,
       aux_sym_accessor_token1,
     ACTIONS(3559), 1,
-      aux_sym_dot_identifier_token1,
+      sym_inner_dot_identifier,
     ACTIONS(3), 2,
       sym_comment,
       sym_docstring,
@@ -66118,7 +66118,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3577), 1,
       aux_sym_accessor_token1,
     ACTIONS(3579), 1,
-      aux_sym_dot_identifier_token1,
+      sym_inner_dot_identifier,
     ACTIONS(3), 2,
       sym_comment,
       sym_docstring,
@@ -66149,7 +66149,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3583), 1,
       aux_sym_accessor_token1,
     ACTIONS(3585), 1,
-      aux_sym_dot_identifier_token1,
+      sym_inner_dot_identifier,
     ACTIONS(3), 2,
       sym_comment,
       sym_docstring,
@@ -66284,7 +66284,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_docstring,
   [70711] = 2,
     ACTIONS(3609), 1,
-      aux_sym_dot_identifier_token1,
+      sym_inner_dot_identifier,
     ACTIONS(3), 2,
       sym_comment,
       sym_docstring,
@@ -66494,7 +66494,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_docstring,
   [70991] = 2,
     ACTIONS(3665), 1,
-      aux_sym_dot_identifier_token1,
+      sym_inner_dot_identifier,
     ACTIONS(3), 2,
       sym_comment,
       sym_docstring,
@@ -66506,7 +66506,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_docstring,
   [71007] = 2,
     ACTIONS(3669), 1,
-      aux_sym_dot_identifier_token1,
+      sym_inner_dot_identifier,
     ACTIONS(3), 2,
       sym_comment,
       sym_docstring,
@@ -66596,7 +66596,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_docstring,
   [71127] = 2,
     ACTIONS(3691), 1,
-      aux_sym_dot_identifier_token1,
+      sym_inner_dot_identifier,
     ACTIONS(3), 2,
       sym_comment,
       sym_docstring,
@@ -66632,7 +66632,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_docstring,
   [71175] = 2,
     ACTIONS(3699), 1,
-      aux_sym_dot_identifier_token1,
+      sym_inner_dot_identifier,
     ACTIONS(3), 2,
       sym_comment,
       sym_docstring,
@@ -66776,7 +66776,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_docstring,
   [71367] = 2,
     ACTIONS(3735), 1,
-      aux_sym_dot_identifier_token1,
+      sym_inner_dot_identifier,
     ACTIONS(3), 2,
       sym_comment,
       sym_docstring,
@@ -66854,7 +66854,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_docstring,
   [71471] = 2,
     ACTIONS(3753), 1,
-      aux_sym_dot_identifier_token1,
+      sym_inner_dot_identifier,
     ACTIONS(3), 2,
       sym_comment,
       sym_docstring,
@@ -66950,7 +66950,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_docstring,
   [71599] = 2,
     ACTIONS(3783), 1,
-      aux_sym_dot_identifier_token1,
+      sym_inner_dot_identifier,
     ACTIONS(3), 2,
       sym_comment,
       sym_docstring,

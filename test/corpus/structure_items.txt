@@ -467,7 +467,8 @@ fn repr(self:MyInt) -> String {
          (qualified_identifier
           (lowercase_identifier)))
         (dot_identifier
-         (dot_operator)))))))))
+         (dot_operator)
+         (inner_dot_identifier)))))))))
  (structure_item
   (type_definition
    (identifier
@@ -510,7 +511,8 @@ fn repr(self:MyInt) -> String {
           (accessor
            (dot_operator))))
         (dot_identifier
-         (dot_operator))))))))))
+         (dot_operator)
+         (inner_dot_identifier))))))))))
 ================================================================================
 Labelled argument and optional argument
 ================================================================================

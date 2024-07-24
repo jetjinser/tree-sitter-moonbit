@@ -553,11 +553,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "dot_operator",
+          "named": true
+        },
+        {
+          "type": "inner_dot_identifier",
           "named": true
         }
       ]
@@ -2497,6 +2501,10 @@
   {
     "type": "impl",
     "named": false
+  },
+  {
+    "type": "inner_dot_identifier",
+    "named": true
   },
   {
     "type": "integer_literal",
